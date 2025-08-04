@@ -3,42 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Sample Website</title>
+    <title>HealthCare Plus - Your Trusted Medical Partner</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Sample Website</h1>            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <h1>HealthCare Plus Medical Center</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#appointment">Book Appointment</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
         <section id="home">
-            <h2>Home</h2>
-            <p>This is a simple website created for testing purposes.</p>
-            <p>Welcome to our homepage! Here you can find information about our services.</p>
+            <h2>Welcome to HealthCare Plus</h2>
+            <p>Your health and well-being are our top priorities. We provide comprehensive medical care with state-of-the-art facilities and experienced healthcare professionals.</p>
+            <p>At HealthCare Plus, we combine modern medical technology with compassionate care to ensure you receive the best possible treatment for all your healthcare needs.</p>
+            
+            <div class="health-stats">
+                <div class="stat-card">
+                    <h3>15+</h3>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50,000+</h3>
+                    <p>Patients Served</p>
+                </div>
+                <div class="stat-card">
+                    <h3>24/7</h3>
+                    <p>Emergency Care</p>
+                </div>
+                <div class="stat-card">
+                    <h3>25+</h3>
+                    <p>Medical Specialists</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Our Medical Services</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="service-icon">🏥</div>
+                    <h3>General Medicine</h3>
+                    <p>Comprehensive primary care services including routine check-ups, preventive care, and treatment of common illnesses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="service-icon">❤️</div>
+                    <h3>Cardiology</h3>
+                    <p>Advanced heart care with state-of-the-art diagnostic equipment and experienced cardiologists for all heart-related conditions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Neurology</h3>
+                    <p>Expert neurological care for brain, spine, and nervous system disorders with cutting-edge treatment options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="service-icon">👶</div>
+                    <h3>Pediatrics</h3>
+                    <p>Specialized care for infants, children, and adolescents with child-friendly facilities and experienced pediatricians.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="service-icon">🦴</div>
+                    <h3>Orthopedics</h3>
+                    <p>Complete bone, joint, and muscle care including sports medicine, joint replacement, and rehabilitation services.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="service-icon">🩺</div>
+                    <h3>Emergency Care</h3>
+                    <p>24/7 emergency medical services with rapid response teams and fully equipped emergency department.</p>
+                </div>
+            </div>
         </section>
 
         <section id="about">
-            <h2>About Us</h2>
-            <p>We are a sample company demonstrating basic web development.</p>
-            <p>Our mission is to provide simple, effective web solutions.</p>
+            <h2>About HealthCare Plus</h2>
+            <p>Established in 2009, HealthCare Plus Medical Center has been serving our community with exceptional healthcare services for over 15 years.</p>
+            <p>Our mission is to provide accessible, high-quality healthcare with compassion and excellence. We believe every patient deserves personalized care in a comfortable, healing environment.</p>
+            
+            <div class="mission-values">
+                <div class="value-item">
+                    <h4>🎯 Our Mission</h4>
+                    <p>To provide exceptional healthcare services that improve the quality of life for our patients and community.</p>
+                </div>
+                <div class="value-item">
+                    <h4>👁️ Our Vision</h4>
+                    <p>To be the leading healthcare provider known for innovation, compassion, and excellence in patient care.</p>
+                </div>
+                <div class="value-item">
+                    <h4>💎 Our Values</h4>
+                    <p>Compassion, Excellence, Integrity, Innovation, and Respect guide everything we do.</p>
+                </div>
+            </div>
         </section>
 
         <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: contact@samplewebsite.com</p>
-            <p>Phone: (555) 123-4567</p>
+            <h2>Contact Our Medical Team</h2>
+            <p>Get in touch with us for inquiries, medical questions, or to schedule an appointment:</p>
+            
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                </div>
+                
+                <div class="form-group">
+                    <label for="inquiry-type">Type of Inquiry:</label>
+                    <select id="inquiry-type" name="inquiry-type" required>
+                        <option value="">Select inquiry type...</option>
+                        <option value="appointment">Schedule Appointment</option>
+                        <option value="medical-question">Medical Question</option>
+                        <option value="insurance">Insurance Information</option>
+                        <option value="emergency">Medical Emergency</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Please describe your inquiry or medical concern..." required></textarea>
+                </div>
+                
+                <div class="emergency-notice">
+                    <strong>⚠️ For Medical Emergencies:</strong> Please call 911 or visit our Emergency Department immediately. Do not use this form for urgent medical situations.
+                </div>
+                
+                <button type="submit" class="btn-primary">Send Medical Inquiry</button>
+            </form>
+            
+            <div id="formMessage" class="form-message" style="display: none;"></div>
+            
+            <div class="contact-info">
+                <h3>Hospital Contact Information</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h4>📍 Main Hospital</h4>
+                        <p>123 Medical Center Drive<br>
+                        Healthcare City, HC 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>📞 Phone Numbers</h4>
+                        <p>Main: (555) 123-CARE<br>
+                        Emergency: (555) 911-HELP<br>
+                        Appointments: (555) 123-APPT</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>📧 Email</h4>
+                        <p>info@healthcareplus.com<br>
+                        appointments@healthcareplus.com<br>
+                        emergency@healthcareplus.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>🕒 Hours</h4>
+                        <p>Mon-Fri: 6:00 AM - 10:00 PM<br>
+                        Sat-Sun: 8:00 AM - 8:00 PM<br>
+                        Emergency: 24/7</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="appointment" class="new-section">
+            <h2>Book Your Appointment</h2>
+            <p>Schedule your visit with our medical professionals. We offer both in-person and telemedicine consultations.</p>
+            
+            <div class="appointment-options">
+                <div class="appointment-card">
+                    <h3>🏥 In-Person Visit</h3>
+                    <p>Visit our state-of-the-art medical facility for comprehensive care and diagnostic services.</p>
+                    <ul>
+                        <li>Physical examinations</li>
+                        <li>Diagnostic tests</li>
+                        <li>Specialist consultations</li>
+                        <li>Same-day appointments available</li>
+                    </ul>
+                </div>
+                <div class="appointment-card">
+                    <h3>💻 Telemedicine</h3>
+                    <p>Convenient virtual consultations from the comfort of your home for non-emergency medical needs.</p>
+                    <ul>
+                        <li>Follow-up consultations</li>
+                        <li>Prescription renewals</li>
+                        <li>Health monitoring</li>
+                        <li>Medical advice</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="demo-section">
+                <h3>Quick Actions</h3>
+                <button id="changeColorBtn" class="btn-secondary">Dark Theme</button>
+                <button id="showDateBtn" class="btn-secondary">Current Date & Time</button>
+                <button id="emergencyBtn" class="btn-emergency">🚨 Emergency Information</button>
+                <div id="dateDisplay" class="date-display"></div>
+                <div id="emergencyInfo" class="emergency-info" style="display: none;">
+                    <h4>🚨 Emergency Contacts</h4>
+                    <p><strong>Life-threatening emergencies:</strong> Call 911</p>
+                    <p><strong>Hospital Emergency Dept:</strong> (555) 911-HELP</p>
+                    <p><strong>Poison Control:</strong> 1-800-222-1222</p>
+                    <p><strong>Mental Health Crisis:</strong> 988</p>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Sample Website. All rights reserved.</p>
+        <p>&copy; 2025 HealthCare Plus Medical Center. All rights reserved. | Licensed Healthcare Provider | HIPAA Compliant</p>
+        <p>Your health information is protected. This website is for informational purposes only and does not replace professional medical advice.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
