@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateVisitorCounter();
     initEmergencyInfo();
     initHealthcareFeatures();
+    initPatientLookup();
 });
 
 // Contact Form Functionality
@@ -533,4 +534,99 @@ function showEmergencyWarning() {
             warning.parentElement.removeChild(warning);
         }
     }, 10000);
+}
+
+// Simple Patient Lookup functionality
+function initPatientLookup() {
+    const searchInput = document.getElementById('patientSearch');
+    const searchBtn = document.getElementById('searchPatientBtn');
+    const resultDiv = document.getElementById('patientResult');
+    
+    // Sample patient data for testing
+    const patientDatabase = {
+        'P001': {
+            name: 'John Smith',
+            age: 45,
+            status: 'Active Patient',
+            lastVisit: '2025-07-15',
+            doctor: 'Dr. Johnson'
+        },
+        'P002': {
+            name: 'Mary Johnson',
+            age: 32,
+            status: 'Active Patient', 
+            lastVisit: '2025-07-20',
+            doctor: 'Dr. Wilson'
+        },
+        'P003': {
+            name: 'Robert Brown',
+            age: 58,
+            status: 'Inactive',
+            lastVisit: '2024-12-10',
+            doctor: 'Dr. Davis'
+        }
+    };
+    
+    if (searchBtn && searchInput && resultDiv) {
+        searchBtn.addEventListener('click', function() {
+            performPatientSearch();
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performPatientSearch();
+            }
+        });
+        
+        searchInput.addEventListener('input', function() {
+            // Clear results when input changes
+            resultDiv.style.display = 'none';
+            resultDiv.className = 'patient-result';
+        });
+    }
+    
+    function performPatientSearch() {
+        const patientId = searchInput.value.trim().toUpperCase();
+        
+        // Validate input
+        if (!patientId) {
+            showPatientResult('error', 'Please enter a Patient ID');
+            return;
+        }
+        
+        if (patientId.length < 3) {
+            showPatientResult('error', 'Patient ID must be at least 3 characters');
+            return;
+        }
+        
+        // Search for patient
+        if (patientDatabase[patientId]) {
+            const patient = patientDatabase[patientId];
+            showPatientResult('success', formatPatientInfo(patient));
+        } else {
+            showPatientResult('error', 'Patient not found. Please check the Patient ID and try again.');
+        }
+    }
+    
+    function formatPatientInfo(patient) {
+        return `
+            <strong>Patient Found:</strong><br>
+            <strong>Name:</strong> ${patient.name}<br>
+            <strong>Age:</strong> ${patient.age}<br>
+            <strong>Status:</strong> ${patient.status}<br>
+            <strong>Last Visit:</strong> ${patient.lastVisit}<br>
+            <strong>Primary Doctor:</strong> ${patient.doctor}
+        `;
+    }
+    
+    function showPatientResult(type, message) {
+        resultDiv.className = `patient-result ${type}`;
+        resultDiv.innerHTML = message;
+        resultDiv.style.display = 'block';
+        
+        // Auto-hide after 10 seconds
+        setTimeout(() => {
+            resultDiv.style.display = 'none';
+        }, 10000);
+    }
 }

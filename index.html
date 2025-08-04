@@ -16,6 +16,7 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#appointment">Book Appointment</a></li>
+                <li><a href="#patient-portal" id="portalLink">Patient Portal</a></li>
             </ul>
         </nav>
     </header>
@@ -212,6 +213,17 @@
                 <button id="changeColorBtn" class="btn-secondary">Dark Theme</button>
                 <button id="showDateBtn" class="btn-secondary">Current Date & Time</button>
                 <button id="emergencyBtn" class="btn-emergency">🚨 Emergency Information</button>
+                
+                <!-- Simple Patient Lookup Feature -->
+                <div class="patient-lookup">
+                    <h4>🔍 Patient Information Lookup</h4>
+                    <div class="lookup-form">
+                        <input type="text" id="patientSearch" placeholder="Enter Patient ID (e.g., P001, P002, P003)" maxlength="10">
+                        <button id="searchPatientBtn" class="btn-secondary">Search Patient</button>
+                    </div>
+                    <div id="patientResult" class="patient-result" style="display: none;"></div>
+                </div>
+                
                 <div id="dateDisplay" class="date-display"></div>
                 <div id="emergencyInfo" class="emergency-info" style="display: none;">
                     <h4>🚨 Emergency Contacts</h4>
@@ -228,6 +240,127 @@
         <p>&copy; 2025 HealthCare Plus Medical Center. All rights reserved. | Licensed Healthcare Provider | HIPAA Compliant</p>
         <p>Your health information is protected. This website is for informational purposes only and does not replace professional medical advice.</p>
     </footer>
+
+    <!-- Patient Portal Modal -->
+    <div id="patientPortalModal" class="modal">
+        <div class="modal-content patient-portal">
+            <span class="close" id="closePortal">&times;</span>
+            <div class="portal-header">
+                <h2>🔒 Patient Portal Login</h2>
+                <p>Access your medical records, test results, and more</p>
+            </div>
+            
+            <div class="portal-tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="register">Register</button>
+                <button class="tab-btn" data-tab="guest">Guest Access</button>
+            </div>
+            
+            <!-- Login Tab -->
+            <div id="login-tab" class="tab-content active">
+                <form id="loginForm" class="portal-form">
+                    <div class="form-group">
+                        <label for="patientId">Patient ID or Email:</label>
+                        <input type="text" id="patientId" name="patientId" placeholder="Enter your Patient ID or email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe">Remember me on this device</label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">🔐 Login to Portal</button>
+                    
+                    <div class="portal-links">
+                        <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                        <a href="#" onclick="showAccountHelp()">Need Help?</a>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Register Tab -->
+            <div id="register-tab" class="tab-content">
+                <form id="registerForm" class="portal-form">
+                    <div class="form-group">
+                        <label for="firstName">First Name:</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dateOfBirth">Date of Birth:</label>
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address:</label>
+                        <input type="email" id="registerEmail" name="registerEmail" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="registerPhone">Phone Number:</label>
+                        <input type="tel" id="registerPhone" name="registerPhone" placeholder="(555) 123-4567" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newPassword">Create Password:</label>
+                        <input type="password" id="newPassword" name="newPassword" placeholder="Create a secure password" required>
+                        <span class="password-toggle" onclick="togglePassword('newPassword')">👁️</span>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                        <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">📝 Create Account</button>
+                </form>
+            </div>
+            
+            <!-- Guest Access Tab -->
+            <div id="guest-tab" class="tab-content">
+                <div class="guest-access">
+                    <h3>🏥 Guest Access Options</h3>
+                    <div class="guest-options">
+                        <div class="guest-option">
+                            <h4>📋 View Test Results</h4>
+                            <p>Access your lab results using your test confirmation number</p>
+                            <input type="text" placeholder="Enter confirmation number" class="guest-input">
+                            <button class="btn-secondary">View Results</button>
+                        </div>
+                        
+                        <div class="guest-option">
+                            <h4>💳 Pay Bill Online</h4>
+                            <p>Make a payment using your account number</p>
+                            <input type="text" placeholder="Enter account number" class="guest-input">
+                            <button class="btn-secondary">Pay Bill</button>
+                        </div>
+                        
+                        <div class="guest-option">
+                            <h4>📅 Check Appointment Status</h4>
+                            <p>View appointment details using confirmation code</p>
+                            <input type="text" placeholder="Enter confirmation code" class="guest-input">
+                            <button class="btn-secondary">Check Status</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="portal-footer">
+                <p><small>🔒 Your information is secure and HIPAA protected. For technical support, call (555) 123-TECH</small></p>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

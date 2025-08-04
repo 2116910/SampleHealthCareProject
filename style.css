@@ -513,49 +513,91 @@ footer {
     background: white;
 }
 
-/* Dark theme updates for healthcare */
-body.dark-theme .stat-card {
-    background: rgba(72, 187, 120, 0.15);
-    border-color: rgba(72, 187, 120, 0.3);
-    color: #e4e4e4;
+/* Simple Patient Lookup Styles */
+.patient-lookup {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    border: 1px solid rgba(102,126,234,0.2);
 }
 
-body.dark-theme .stat-card h3 {
-    color: #68d391;
+.patient-lookup h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
 }
 
-body.dark-theme .appointment-card {
-    background: rgba(72, 187, 120, 0.1);
-    border-color: rgba(72, 187, 120, 0.3);
-    color: #e4e4e4;
+.lookup-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-body.dark-theme .contact-item {
-    background: rgba(45,55,72,0.8);
+.lookup-form input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.lookup-form input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102,126,234,0.1);
+}
+
+.patient-result {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.patient-result.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.patient-result.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Dark theme support for patient lookup */
+body.dark-theme .patient-lookup {
+    background: rgba(45,55,72,0.9);
     border-color: rgba(102,126,234,0.3);
     color: #e4e4e4;
 }
 
-body.dark-theme .form-group select {
-    background: rgba(45,55,72,0.8);
+body.dark-theme .patient-lookup h4 {
+    color: #ffffff;
+}
+
+body.dark-theme .lookup-form input {
+    background: #4a5568;
+    border-color: #718096;
     color: #e4e4e4;
-    border-color: #4a5568;
 }
 
-body.dark-theme .emergency-notice {
-    background: rgba(229, 62, 62, 0.2);
-    border-color: #f56565;
-    color: #fed7d7;
+body.dark-theme .lookup-form input:focus {
+    border-color: #667eea;
+    background: #2d3748;
 }
 
-body.dark-theme .emergency-info {
-    background: rgba(229, 62, 62, 0.2);
-    border-color: #f56565;
-    color: #fed7d7;
-}
-
-body.dark-theme .emergency-info h4 {
-    color: #fed7d7;
+/* Responsive design for patient lookup */
+@media (max-width: 768px) {
+    .lookup-form {
+        flex-direction: column;
+    }
+    
+    .lookup-form input {
+        margin-bottom: 0.5rem;
+    }
 }
 
 /* Responsive Design */
